@@ -14,3 +14,5 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }) as Adapter,
     providers: [Discord],
 });
+
+export const getAuth = async () => await auth();

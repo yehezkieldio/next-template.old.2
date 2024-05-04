@@ -1,9 +1,11 @@
 import { SignIn } from "@/app/_components/signin-button";
 import { SignOut } from "@/app/_components/signout-button";
 import { auth } from "@/server/auth";
+import { api } from "@/trpc/server";
 
 export default async function Home() {
     const session = await auth();
+    const test = await api.test.public();
 
     console.log(session);
 
@@ -14,6 +16,8 @@ export default async function Home() {
             </div>
         );
     }
+
+    console.log(test);
 
     return (
         <div>
